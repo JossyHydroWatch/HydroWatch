@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroWatch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Página de inicio -->
+    <div id="welcome-page" class="page">
+        <h1>Bienvenido a HydroWatch</h1>
+        <p>La aplicación para el monitoreo de aguas en tiempo real</p>
+        <button onclick="goToLogin()">Siguiente</button>
+    </div>
+
+    <!-- Página de ingreso -->
+    <div id="login-page" class="page" style="display: none;">
+        <h2>Comencemos</h2>
+        <p>Crea tu cuenta</p>
+        <form id="signup-form" onsubmit="event.preventDefault(); goToMonitoring();">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Contraseña" required>
+            <input type="password" placeholder="Confirmar Contraseña" required>
+            <button type="submit">Listo</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="#" onclick="goToMonitoring()">Ingresa aquí</a></p>
+    </div>
+
+    <!-- Página de monitoreo -->
+    <div id="monitoring-page" class="page" style="display: none;">
+        <h2>Parámetros del Agua</h2>
+        <div id="water-parameters">
+            <p>pH: <span id="ph">7</span></p>
+            <p>Turbidez: <span id="turbidity">5 NTU</span></p>
+            <p>Aceite/Petróleo: <span id="oil">0.01 ppm</span></p>
+        </div>
+        <button onclick="startMonitoring()">Iniciar Monitoreo en Tiempo Real</button>
+        <button onclick="stopMonitoring()">Detener monitoreo</button>
+        <button onclick="viewAlerts()">Ver Alertas</button>
+        <button onclick="simulateAlert()">Simulación de Alerta</button>
+    </div>
+
+    <!-- Alerta -->
+    <div id="alert" class="alert" style="display: none;">
+        <p>¡Alerta! Alta presencia de hidrocarburos en el agua</p>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
